@@ -71,6 +71,18 @@ player1.pad = new Box()
 //give the players a paddle by setting the pad property to new Box()
 
 
+//week 2 - creating an array for the paddles
+
+//add a new array called pad to the game
+var pad_array = []
+
+//player's avatar = paddle
+pad_array[0] = player[0].pad
+
+pad_array[1] = player[1].pad
+
+
+
 
 
 
