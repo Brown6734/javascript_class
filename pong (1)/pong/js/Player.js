@@ -5,7 +5,7 @@ class Player{
     constructor()
     {
         this.name1;
-        this.score;
+        this.score = 0;
         this.highScore;
         this.pad;
     }

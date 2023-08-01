@@ -58,12 +58,14 @@ var player = []
 
 player[0] = new Player()
 
-
 player[1] = new Player()
 
+//player 1/first player
 var player0 = player[0]
 player0.pad = new Box()
 
+
+//player 2/second player
 var player1 = player[1]
 player1.pad = new Box()
 
@@ -162,28 +164,60 @@ function main()
     {
         ball.x = c.width/2
         ball.y = c.height/2
+
+        player1.score += 1;
+
+        //console.log("Second Player Score: " + player1.score)
+
+        //console.log("text")
+
+        console.log(player1.score + " | " + player0.score)
+        
+
+        //player 1/first player
+        //var player0 = player[0]
+        //player0.pad = new Box()
     }
 
     if(ball.x > 800)
     {
         ball.x = c.width/2;
         ball.y = c.height/2;
+
+        player0.score += 1;
+        
+        //console.log("First Player Score: " + player0.score)
+
+        //console.log("text")
+
+        console.log(player0.score + " | " + player1.score)
+        
     }
 
     if(ball.x > c.width)
     {
         ball.x = c.width
         ball.vx = -ball.vx
+
+        
     }
     if(ball.y < 0)
     {
         ball.y = 0
         ball.vy = -ball.vy
+
+        
+
+        
     }
     if(ball.y > c.height)
     {
         ball.y = c.height
         ball.vy = -ball.vy
+
+        
+
+        
        
     }
 
