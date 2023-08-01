@@ -45,6 +45,36 @@ ball.vx = -2
 ball.vy = -2
 ball.color = `black`
 
+
+//week 2 creating the players
+
+//in the game file declare an array called player
+
+var player = []
+
+//add a new Player() to the 0 and 1 Indexes of the player array
+
+
+
+player[0] = new Player()
+
+
+player[1] = new Player()
+
+var player0 = player[0]
+player0.pad = new Box()
+
+var player1 = player[1]
+player1.pad = new Box()
+
+
+//give the players a paddle by setting the pad property to new Box()
+
+
+
+
+
+
 function main()
 {
     //erases the canvas
