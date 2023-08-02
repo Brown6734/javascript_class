@@ -8,6 +8,8 @@ var timer = setInterval(main, 1000/60)
 //global friction variable
 var fy = .85
 
+score = document.querySelectorAll(`#score div`)
+
 //p1 setup
 var p1 = new Box();
 p1.w = 20
@@ -37,37 +39,26 @@ p2.color = `Maroon`;
 
 //console.log(p2);
 
-//ball setup
-var ball = new Box();
-ball.w = 20
-ball.h = 20
-ball.vx = -2
-ball.vy = -2
-ball.color = `black`
+
 
 
 //week 2 creating the players
 
 //in the game file declare an array called player
 
-var player = []
+
 
 //add a new Player() to the 0 and 1 Indexes of the player array
 
 
 
-player[0] = new Player()
-
-player[1] = new Player()
 
 //player 1/first player
-var player0 = player[0]
-player0.pad = new Box()
+
 
 
 //player 2/second player
-var player1 = player[1]
-player1.pad = new Box()
+
 
 
 //give the players a paddle by setting the pad property to new Box()
@@ -76,14 +67,57 @@ player1.pad = new Box()
 //week 2 - creating an array for the paddles
 
 //add a new array called pad to the game
-var pad_array = []
+
 
 //player's avatar = paddle
-pad_array[0] = player[0].pad
 
-pad_array[1] = player[1].pad
+var player1 = new Player()
+var player2 = new Player()
+
+var player = [player1, player2]
+var pad = []
+
+//first player paddle
+player[0].pad = new Box()
+
+//second player paddle
+player[1].pad = new Box()
+
+//first player score
+player[0].score = 0
+
+//second player score
+player[1].score = 0
+
+//set pad 0 equal to player 0 pad property
+//this is for first player
+pad[0] = player[0].pad
+
+//set pad 1 equal to player 1 pad property
+//this is for second player
+pad[1] = player[1].pad
+
+//first player
+//set values for w, h, and x properties
+pad[0].w = 20
+pad[0].h = 150
+pad[0].x = 0 + pad[0].w/2
+
+//second player
+//set values for w, h, x, and dir properties
+pad[1].w = 20
+pad[1].h = 150
+pad[1].x = c.width - pad[1].w/2
+pad[1].dir = -1
 
 
+//ball setup
+var ball = new Box();
+ball.w = 20
+ball.h = 20
+ball.vx = -2
+ball.vy = -2
+ball.color = `black`
 
 
 
@@ -165,7 +199,7 @@ function main()
         ball.x = c.width/2
         ball.y = c.height/2
 
-        player1.score += 1;
+        player[1].score++
 
         //console.log("Second Player Score: " + player1.score)
 
@@ -184,7 +218,7 @@ function main()
         ball.x = c.width/2;
         ball.y = c.height/2;
 
-        player0.score += 1;
+        player[0].score++
         
         //console.log("First Player Score: " + player0.score)
 
@@ -238,8 +272,23 @@ function main()
 
     //draw the objects
     p2.draw();
-    p1.draw()
+    p1.draw();
+
+    //in the main animation loop at the end where the boxes are drawn
+
+    //use a for loop to update each div's inner text to show each player's score
+
+    
+    
+    for (let i = 0; i < player.length; i++)
+    {
+        score[i].innerText = player[i].score
+    }
+    
+
     
     ball.draw()
+
+    
     
 }
