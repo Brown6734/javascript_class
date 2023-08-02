@@ -11,65 +11,15 @@ var fy = .85
 score = document.querySelectorAll(`#score div`)
 
 //p1 setup
-var p1 = new Box();
-p1.w = 20
-p1.h = 150
-p1.x = 0 + p1.w/2
-
-//var p2 = new Box();
-//p2.w = 120;
-//p2.h = 350;
-//p2.x = 0 - p2.w/2;
-//p2.x = 50 + p2.w/2;
-//p2.color = 'green';
-
-//var p2 = new Box();
-//p2.w = 220;
-//p2.h = 250;
-//p2.vx = 0;
-//p2.vy = 0;
-//p2.x = 0 + p2.w/2;
-//p2.color = `black`;
-
-var p2 = new Box();
-p2.w = 20
-p2.h = 150
-p2.x = c.width - p2.w/2
-p2.color = `Maroon`;
-
-//console.log(p2);
 
 
 
+//week 2 cleaning up the code
+//in this assignment students will modify their animation loop to utilize for loops for game elements
 
-//week 2 creating the players
-
-//in the game file declare an array called player
-
-
-
-//add a new Player() to the 0 and 1 Indexes of the player array
+//use for loops for the paddle movement, collisions, and drawing
 
 
-
-
-//player 1/first player
-
-
-
-//player 2/second player
-
-
-
-//give the players a paddle by setting the pad property to new Box()
-
-
-//week 2 - creating an array for the paddles
-
-//add a new array called pad to the game
-
-
-//player's avatar = paddle
 
 var player1 = new Player()
 var player2 = new Player()
@@ -115,7 +65,7 @@ pad[1].dir = -1
 var ball = new Box();
 ball.w = 20
 ball.h = 20
-ball.vx = -2
+ball.vx = -3
 ball.vy = -2
 ball.color = `black`
 
@@ -134,22 +84,26 @@ function main()
     //p1 accelerates when key is pressed 
     if(keys[`w`])
     {
-       p1.vy += -p1.force
+       //p1.vy += -p1.force
+       pad[0].vy += -pad[0].force
     }
 
     if(keys[`s`])
     {
-        p1.vy += p1.force
+        //p1.vy += p1.force
+        pad[0].vy += pad[0].force
     }
 
     if(keys[`ArrowUp`])
     {
-        p2.vy += -p2.force;
+        //p2.vy += -p2.force;
+        pad[1].vy += -pad[1].force
     }
 
     if(keys[`ArrowDown`])
     {
-        p2.vy += p2.force;
+        //p2.vy += p2.force;
+        pad[1].vy += pad[1].force
     }
 
 
@@ -161,118 +115,96 @@ function main()
 
 
     //applies friction
-    p1.vy *= fy
-    p2.vy *= fy;
-    //player movement
-    p1.move();
 
-    p2.move();
 
-    //ball movement
+    //use for loops here
+    
+    for (let i = 0; i < player.length; i ++)
+    {
+        pad[i].vy *= fy
+        pad[i].move()
+        //then do ___
+        if (pad[i].y > c.height-pad[i].h/2)
+        {
+            pad[i].y = c.height-pad[i].h/2
+        }
+
+        if (pad[i].y < 0+pad[i].h/2)
+        {
+            pad[i].y = 0+pad[i].h/2
+        }
+        if (ball.collide(pad[i]))
+        {
+            //ball.x = (pad[i].x + (pad[i].w/2 + ball.w/2) * pad[i].dir)
+
+            
+
+            ball.x = pad[i].x + (pad[i].w/2 + ball.w/2)
+            
+            //ball.vx = 3 * pad[i].dir
+
+            ball.vx = -ball.vx
+            //ball.vx = pad[i].dir
+
+            /*
+
+            ball.x = p1.x + p1.w/2 + ball.w/2
+
+            ball.vx = - ball.vx
+
+            */
+
+        }
+    }
+    
     ball.move()
 
-    //p1 collision
-    if(p1.y < 0+p1.h/2)
-    {
-        p1.y = 0+p1.h/2
-    }
-    if(p1.y > c.height-p1.h/2)
-    {
-        p1.y = c.height-p1.h/2
-    }
-
-    //p2 collision
-
-    if (p2.y < 0 + p2.h/2)
-    {
-        p2.y = 0 + p2.h/2;
-    }
-
-    if (p2.y > c.height - p2.h/2)
-    {
-        p2.y = c.height - p2.h/2;
-    }
-
-    //ball collision 
-    if(ball.x < 0)
+    if (ball.x < 0)
     {
         ball.x = c.width/2
         ball.y = c.height/2
 
         player[1].score++
 
-        //console.log("Second Player Score: " + player1.score)
+        console.log(`${player[0].score} | ${player[1].score}`)
 
-        //console.log("text")
-
-        console.log(player1.score + " | " + player0.score)
-        
-
-        //player 1/first player
-        //var player0 = player[0]
-        //player0.pad = new Box()
     }
 
-    if(ball.x > 800)
+    if (ball.x > c.width-ball.h/2)
     {
-        ball.x = c.width/2;
-        ball.y = c.height/2;
+        ball.x = c.width/2
+        ball.y = c.height/2
 
         player[0].score++
-        
-        //console.log("First Player Score: " + player0.score)
 
-        //console.log("text")
-
-        console.log(player0.score + " | " + player1.score)
-        
+        console.log(`${player[1].score} | ${player[0].score}`)
     }
 
-    if(ball.x > c.width)
+    /*
+    if (ball.x > c.width)
     {
         ball.x = c.width
-        ball.vx = -ball.vx
-
-        
+        ball.vx = - ball.vx
     }
-    if(ball.y < 0)
+    */
+
+    if (ball.y < 0+ball.h/2)
     {
-        ball.y = 0
+        ball.y = 0+ball.h/2
         ball.vy = -ball.vy
-
-        
-
-        
     }
-    if(ball.y > c.height)
+
+    if (ball.y > c.height-ball.h/2)
     {
-        ball.y = c.height
+        ball.y = c.height-ball.h/2
+
         ball.vy = -ball.vy
-
-        
-
-        
-       
     }
 
-    //p1 with ball collision
-    if(ball.collide(p1))
-    {
-        ball.x = p1.x + p1.w/2 + ball.w/2
-        ball.vx = -ball.vx;
-    }
-
-    //p2 with ball collision
-
-    if (ball.collide(p2))
-    {
-        ball.x = p2.x - p2.w/2 - ball.w/2;
-        ball.vx = -ball.vx;
-    }
 
     //draw the objects
-    p2.draw();
-    p1.draw();
+    //p2.draw();
+    //p1.draw();
 
     //in the main animation loop at the end where the boxes are drawn
 
@@ -283,6 +215,7 @@ function main()
     for (let i = 0; i < player.length; i++)
     {
         score[i].innerText = player[i].score
+        pad[i].draw()
     }
     
 
