@@ -42,6 +42,8 @@ function funShowHide(e)
 
     //side2.classList.toggle(`hidden`)
     
+    
+    
     side3.classList.toggle(`hidden`)
     
     
@@ -102,6 +104,53 @@ function funShowHide(e)
         . Show the fill's hex code in the output div 
 
 -----------*/
+
+//select the fill Inputs
+
+//does it mean class "fill"??
+//but there are two class "fill" s
+//just get it to work first, then figure out how to point it to player 1 or player 2
+
+var fills = document.getElementsByClassName(`fill`)
+
+console.log("fill is: ", fills)
+
+//i bet I could do:
+//fills[0] for player 1
+
+//fills[1] for player 2
+
+console.log(" ")
+
+console.log(fills[0])
+
+console.log(fills[1])
+
+//i got the two seperate fill boxes
+
+//iterate through them
+//use a loop
+
+var loopControl = "Y"
+
+while (loopControl.toUpperCase() == "Y")
+{
+    //set each's input's value to equal the player's fill property
+
+    //fills[0] - first player
+    //fills[1] - second player
+
+    //fills[0] = ?
+    //? = player[0]
+
+    //fills[0] = player[0]
+
+    console.log(fills[0])
+}
+
+
+
+
 
 /*---------
     Program the six key inputs to do the following:
