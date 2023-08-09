@@ -204,3 +204,41 @@ for (let i =0; i< fills.length; i++)
         .Change the player's key to the value of the input
         .Show the player's key in the output div 
 -----------*/
+
+//select the u inputs
+//there are two
+//class = "u"
+
+var upKeys = document.getElementsByClassName(`u`)
+
+console.log(upKeys.length)
+
+//for let i =0; i<upKeys.length; i++ {}
+
+//first get it working, then do for loop
+
+//set the input's value to the appropriate player's current keys u property
+//upKeys[0].value = player[0].keys.u
+
+//add a `keydown` event to the input
+
+upKeys[0].addEventListener(`keydown`, changeKeys)
+
+function changeKeys(e)
+{
+    //make the input display the name of the key that was pressed
+
+    //e.target.innerHTML = e.target.value
+
+    //player[0].keys.u = e.target.value
+
+    upKeys[0].nextElementSibling.innerHTML = e.target
+
+    //player[0].keys.u.innerHTML = e.target
+
+    
+    
+
+}
+
+
