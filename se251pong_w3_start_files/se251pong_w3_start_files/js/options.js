@@ -152,6 +152,7 @@ for (let i =0; i< fills.length; i++)
         console.log(e)
 
         console.log(" ")
+        console.log("fun stuff please workr")
 
         console.log(e.target) //which = input fill tag
 
