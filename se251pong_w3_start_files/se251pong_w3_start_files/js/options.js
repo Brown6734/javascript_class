@@ -120,33 +120,76 @@ console.log("fill is: ", fills)
 
 //fills[1] for player 2
 
-console.log(" ")
+//oneplayer = fills[0]
 
-console.log(fills[0])
+//console.log(" ")
 
-console.log(fills[1])
+//console.log(oneplayer)
+
+//console.log(fills[0])
+
+//console.log(fills[1])
 
 //i got the two seperate fill boxes
 
-//iterate through them
-//use a loop
+console.log(fills.length)
 
-var loopControl = "Y"
-
-while (loopControl.toUpperCase() == "Y")
+for (let i =0; i< fills.length; i++)
 {
-    //set each's input's value to equal the player's fill property
 
+    fills[i].value = player[i].fill
+
+    fills[i].nextElementSibling.innerHTML = player[i].fill
+
+    fills[i].addEventListener(`input`, oneInput)
+
+    function oneInput(e)
+    {
+        //oneplayer = e.target.style.color = 'green'
+        //how to get color out of input??
+
+        //fill i? input?
+        console.log(e)
+
+        console.log(" ")
+
+        console.log(e.target) //which = input fill tag
+
+        oneplayer = e.target
+
+        console.log(oneplayer)
+
+        player[i].fill = e.target.value
+
+        pad[i].fill = e.target.value
+
+        e.target.nextElementSibling.innerHTML = player[i].fill
+
+        //fills[i] = input value and equal player's fill property??
+        //console.log(fills[i])
+
+
+        
+
+
+        //console.log("oneplayer ", oneplayer)
+    }
+}
     //fills[0] - first player
     //fills[1] - second player
 
     //fills[0] = ?
     //? = player[0]
 
-    //fills[0] = player[0]
+    //fills[0] = player[0].fill = "green"
 
-    console.log(fills[0])
-}
+    
+
+    //console.log(fills[0])
+    
+    //loopControl = "D"
+
+//}
 
 
 
