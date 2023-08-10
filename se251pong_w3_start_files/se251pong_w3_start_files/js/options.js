@@ -115,6 +115,8 @@ var fills = document.getElementsByClassName(`fill`)
 
 console.log("fill is: ", fills)
 
+var currentStatus = "8 10 2023. using computer N212B2"
+
 //i bet I could do:
 //fills[0] for player 1
 
