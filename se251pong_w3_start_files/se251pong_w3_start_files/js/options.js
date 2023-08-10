@@ -57,11 +57,6 @@ function funShowHide(e)
 
 
 
-//to practice adding and removing classes from an element
-//so maybe removing class sides from the div???
-
-//options.removeEventListener("click", funShowHide)
-
 
 
 
@@ -73,23 +68,6 @@ function funShowHide(e)
     //make the `sides` div show and hide by using classlist.toggle()
     //to add or remove the `hidden` class
 
-
-    //options.classList.toggle(`hidden`)
-
-    /*
-
-    options.removeEventListener("click", optFun)
-
-    or
-
-    options.addEventListener("click", remove)
-
-    function remove(e)
-    {
-        e.preventDefault()
-        e.currentTarget.style.color = "yellow"
-    }
-    */
 
 
 //}
@@ -116,19 +94,11 @@ var fills = document.getElementsByClassName(`fill`)
 console.log("fill is: ", fills)
 
 var currentStatus = "8 10 2023. using computer N212B2"
+//update
+//8 10 2023; using computer N202A6
 
 //i bet I could do:
 //fills[0] for player 1
-
-//fills[1] for player 2
-
-//oneplayer = fills[0]
-
-//console.log(" ")
-
-//console.log(oneplayer)
-
-//console.log(fills[0])
 
 //console.log(fills[1])
 
@@ -178,19 +148,7 @@ for (let i =0; i< fills.length; i++)
         //console.log("oneplayer ", oneplayer)
     }
 }
-    //fills[0] - first player
-    //fills[1] - second player
-
-    //fills[0] = ?
-    //? = player[0]
-
-    //fills[0] = player[0].fill = "green"
-
-    
-
-    //console.log(fills[0])
-    
-    //loopControl = "D"
+   
 
 //}
 
@@ -213,34 +171,63 @@ for (let i =0; i< fills.length; i++)
 
 var upKeys = document.getElementsByClassName(`u`)
 
-console.log(upKeys.length)
+//console.log(upKeys.length)
 
-//for let i =0; i<upKeys.length; i++ {}
 
-//first get it working, then do for loop
-
-//set the input's value to the appropriate player's current keys u property
-//upKeys[0].value = player[0].keys.u
-
-//add a `keydown` event to the input
-
-upKeys[0].addEventListener(`keydown`, changeKeys)
-
-function changeKeys(e)
+for (let i =0; i<upKeys.length; i++)
 {
-    //make the input display the name of the key that was pressed
 
-    //e.target.innerHTML = e.target.value
+    upKeys[i].addEventListener(`keydown`, changeKeys)
 
-    //player[0].keys.u = e.target.value
+    function changeKeys(e)
+    {
+        //make the input display the name of the key that was pressed
 
-    upKeys[0].nextElementSibling.innerHTML = e.target
+        //e.target.innerHTML = e.target.value
 
-    //player[0].keys.u.innerHTML = e.target
+        //player[0].keys.u = e.target.value
+
+        //upKeys[0].nextElementSibling.innerHTML = e.target
+        upKeys[i].value = e.key
+
+        console.log("upkeys 0 is now set: ", upKeys[i])
+
+        //set the player's u key to equal the new value of the input
+
+        player[i].keys.u = e.key
+
+        //set the output to display the player's new u key value
+
+        e.target.nextElementSibling.innerHTML = player[i].keys.u
+
+        //works
+
+        //works!! shows up in textbox
+
+        /*
+
+        <input class="u" type="text" maxlength="1">[object HTMLInputElement]</input>
+
+        */
+
+        //put the value into the textbox??
+
+        //player[0].keys.u.innerHTML = e.target
+
+    }
+
+    //add a focus event listener to the input; `focus`
+
+    upKeys[i].addEventListener(`focus`, funFocus)
+
+    function funFocus(e)
+    {
+        //if keys `keydown` - current state becomes `pause`
 
     
+        currentState = `pause`
     
+    }
+
 
 }
-
-
