@@ -231,3 +231,115 @@ for (let i =0; i<upKeys.length; i++)
 
 
 }
+
+/*
+
+in this assignment students will make the remaining stroke, down, and straight options function
+
+REMEMBER
+the text inputs should pause the game
+
+*/
+
+//classes
+//stroke
+//d = down
+//s = straight
+
+//stroke = player.stroke
+//d/down = player keys d
+//s/straight = player keys s
+
+var strokes = document.getElementsByClassName(`stroke`)
+
+for (let i=0; i<strokes.length; i++){
+
+    //an `input` event
+    //not a `keydown` event
+    
+    strokes[i].value = player[i].stroke
+
+    strokes[i].nextElementSibling.innerHTML = player[i].stroke
+
+    strokes[i].addEventListener(`input`, changeStroke)
+
+    function changeStroke(e)
+    {
+        player[i].stroke = e.target.value
+        pad[i].stroke = e.target.value
+
+        e.target.nextElementSibling.innerHTML = player[i].stroke
+
+
+    }
+
+
+}
+
+//classes
+//stroke
+//d = down
+//s = straight
+
+//stroke = player.stroke
+//d/down = player keys d
+//s/straight = player keys s
+
+var downs = document.getElementsByClassName(`d`)
+
+for (let i=0; i<downs.length; i++){
+    downs[i].addEventListener(`keydown`, changeDown)
+
+    function changeDown(e)
+    {
+        downs[i].value = e.key
+
+        player[i].keys.d = e.key
+
+        e.target.nextElementSibling.innerHTML = player[i].keys.d
+
+
+    }
+
+    downs[i].addEventListener(`focus`, downFocus)
+
+    function downFocus(e)
+    {
+        currentState = `pause`
+    }
+
+
+}
+
+//classes
+//stroke
+//d = down
+//s = straight
+
+//stroke = player.stroke
+//d/down = player keys d
+//s/straight = player keys s
+
+var straight = document.getElementsByClassName(`s`)
+
+for (let i =0; i<straight.length; i++)
+{
+    straight[i].addEventListener(`keydown`, changeStraight)
+
+    function changeStraight(e)
+    {
+        straight[i].value = e.key
+        player[i].keys.s = e.key
+        e.target.nextElementSibling = player[i].keys.s
+
+
+    }
+
+    straight[i].addEventListener(`focus`, focusStraight)
+
+    function focusStraight(e)
+    {
+        currentState = `pause`
+    }
+}
+
