@@ -388,7 +388,32 @@ var body = document.querySelector(`body`)
         
         canvas.fill = (canvas.style.backgroundColor = e.target.value)
 
-        body.style.backgroundColor = `darkolivegreen`
+        //body.style.backgroundColor = -(e.target.value)
+
+        //body.style.backgroundColor = 
+
+   
+
+
+        //Math.floor(Math.random() * 10);
+
+        var num3 = Math.floor(Math.random()*4)
+
+        if (num3 == 1)
+        {
+            body.style.backgroundColor = `burlywood`
+        }
+        if (num3 == 2)
+        {
+            body.style.backgroundColor = `darkkhaki`
+        }
+        if (num3 == 3)
+        {
+            body.style.backgroundColor = `darkorange`
+        }
+
+     
+        //console.log(Number(e.target.value) - Number(e.target.value))
 
         e.target.nextElementSibling.innerHTML = c.fill
 
@@ -430,16 +455,17 @@ for (i = 0; i< colBall.length; i ++){
 
     colBall[i].addEventListener(`input`, changeBall)
 
+
     function changeBall(e)
     {
         ball.fill = e.target.value
 
-        ball.w = 55
-        ball.h = 87
+        ball.w = 56
+        ball.h = 34
 
         e.target.nextElementSibling.innerHTML = ball.fill
 
-
+        
     }
 
 }
