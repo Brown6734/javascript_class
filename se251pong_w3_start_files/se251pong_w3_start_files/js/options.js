@@ -130,7 +130,7 @@ for (let i =0; i< fills.length; i++)
 
         oneplayer = e.target
 
-        console.log(oneplayer)
+        //console.log(oneplayer)
 
         player[i].fill = e.target.value
 
@@ -343,3 +343,103 @@ for (let i =0; i<straight.length; i++)
     }
 }
 
+//Determine a feature of the game that you would like the user to be able to control via an html input
+//font (size) of score
+
+
+//color of canvas
+//fill property?
+//c.fill ?
+//id pong
+var ccanvas = document.getElementsByClassName(`ccolor`)
+
+var canvas = document.querySelector(`#pong`)
+
+var body = document.querySelector(`body`)
+
+
+
+//for (let i=0; i<ccanvas.length; i++){
+    //ccanvas = ctx.fillStyle
+
+    
+    //console.log(ccanvas) //undefined
+
+    c.fill = ccanvas[0].value
+    canvas.fill = ccanvas[0].value
+
+    //ccanvas[0].value = c.fill
+
+    ccanvas[0].nextElementSibling.innerHTML = c.fill
+
+    ccanvas[0].addEventListener(`input`, changeColor)
+
+    function changeColor(e)
+    {
+        
+       
+        //something.fill = e.target.value
+
+        //canvas.fill = e.target.value
+
+        c.fill = e.target.value
+
+        //canvas.fill = body.style.backgroundColor(e.target.value)
+        
+        canvas.fill = (canvas.style.backgroundColor = e.target.value)
+
+        body.style.backgroundColor = `darkolivegreen`
+
+        e.target.nextElementSibling.innerHTML = c.fill
+
+        //canvas color change works!! yeah!!
+
+
+        
+
+        //input.color
+
+
+    }
+
+
+
+
+
+
+
+
+//}
+
+
+
+//size / color of ball
+
+//class = ballc
+
+//ball.property ...
+
+
+
+var colBall = document.getElementsByClassName(`ballc`)
+
+for (i = 0; i< colBall.length; i ++){
+    //ball.fill = colBall[0].value
+
+    colBall[i].nextElementSibling.innerHTML = ball.fill
+
+    colBall[i].addEventListener(`input`, changeBall)
+
+    function changeBall(e)
+    {
+        ball.fill = e.target.value
+
+        ball.w = 55
+        ball.h = 87
+
+        e.target.nextElementSibling.innerHTML = ball.fill
+
+
+    }
+
+}
