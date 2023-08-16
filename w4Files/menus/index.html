@@ -45,6 +45,18 @@
             2. append the new menu-
         */
 
+        /*
+        
+        in this assignment when the start button is clicked you will fade it out using jquery functions and fade in the new menu once the fadeout is completed
+
+        instructions:
+        1. in the click for the start button the removeChild function will go in the jquery animate callback
+        2. the call back will append the new menu and animate it from an opacity of 0 to 1
+        
+        */
+
+
+
 
 
 
@@ -106,10 +118,15 @@
         startButton.addEventListener(`click`, (e)=>{
             console.log(`hi`)
 
-            menus.removeChild(startMenu)
-            menus.appendChild(stOpt)
+            //menus.removeChild(startMenu)
+            //menus.appendChild(stOpt)
 
             $(`#start`).animate({opacity: 0}, 1000, function(){
+                menus.removeChild(startMenu)
+                menus.appendChild(stOpt)
+
+                $(`#start-options`).animate({opacity: 1}, 3000)
+
                 window.location = `pong.html`
             });
             //menus.removeChild(startMenu)
