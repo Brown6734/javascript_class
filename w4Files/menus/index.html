@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <nav><a href="index.html">HOME</a></nav>
+    <main>
+        <section class="blank"></section>
+        <section id="content">
+            <div id="menus">
+            <!--Use createElement and appendElement to make the menu that reflects what the commented html looks like
+            d
+            when the start button is pressed:
+            1. remove the start menu
+            2. append the new menu-->
+
+           
+
+            <!-- This is what your final HMTL will look like.
+                <div id="start-options">
+                    <button data-load="false">New Game</button> NOTE: Will redirect to lobby.html and send load=false
+                    <button data-load="true">Continue</button> NOTE: Will redirect to lobby.html and send load=true
+                    <button>High Scores</button> NOTE: Will redirect to hs.html
+                </div>
+            -->
+            </div>
+        </section>
+        <section class="blank"></section>
+    </main>
+    <script src="js/User.js"></script>
+    <script>
+
+        /*
+        Use createElement and appendElement to make the menu that reflects what the commented html looks like
+            d
+            when the start button is pressed:
+            1. remove the start menu
+            2. append the new menu-
+        */
+
+
+
+
+
+        var menus = document.querySelector(`#menus`);
+
+        //loading icon code
+        const loadDiv = document.createElement(`div`);
+        loadDiv.setAttribute(`id`, `load`);
+        menus.appendChild(loadDiv);
+     
+        const startMenu = document.createElement(`div`);
+        startMenu.setAttribute(`id`, `start`);
+        startMenu.style.opacity =`0`;
+        
+        const startButton = document.createElement(`button`);
+        startButton.appendChild(document.createTextNode(`start`));
+        startMenu.appendChild(startButton)
+
+        const highScores = document.createElement(`div`);
+        highScores.setAttribute(`id`, `high-scores`);
+
+        //createElement - div, with id of start-options
+        const stOpt = document.createElement(`div`)
+        stOpt.setAttribute(`id`,`start-options`)
+        menus.appendChild(stOpt)
+
+        //createElement - button, new game
+        const newGameBtn = document.createElement(`button`)
+        newGameBtn.appendChild(document.createTextNode(`New Game`))
+        //newGameBtn.setAttribute(`data-load`,`false`)
+        stOpt.appendChild(newGameBtn)
+
+        //createElement - button, continue
+        const continueBtn = document.createElement(`button`)
+        continueBtn.appendChild(document.createTextNode(`Continue`))
+        stOpt.appendChild(continueBtn)
+
+        //createElement - button, high scores
+        const highBtn = document.createElement(`button`)
+        highBtn.appendChild(document.createTextNode(`High Scores`))
+        stOpt.appendChild(highBtn)
+
+        //if (10 < 30)
+        //{
+        menus.removeChild(stOpt)
+            
+        //}
+
+        var timer = setTimeout(loadStartMenu, 1000);
+        function loadStartMenu(){
+            $(`#load`).animate({opacity: 0}, 2000, function() {
+                menus.removeChild(loadDiv)
+                menus.appendChild(startMenu)
+                $(`#start`).animate({opacity: 1}, 2000);
+            });
+        }
+
+        startButton.addEventListener(`click`, (e)=>{
+            console.log(`hi`)
+
+            menus.removeChild(startMenu)
+            menus.appendChild(stOpt)
+
+            $(`#start`).animate({opacity: 0}, 1000, function(){
+                window.location = `pong.html`
+            });
+            //menus.removeChild(startMenu)
+            //menus.appendElement(stOpt)
+        })
+
+        //use createElement and appendElement to make the menu
+        //(that) reflects what the commented
+        //html looks like
+
+        //when the start button is pressed:
+        //1. remove the start menu
+        //2. append the new menu
+
+        
+        
+        
+
+
+
+    </script>
+</body>
+</html>
