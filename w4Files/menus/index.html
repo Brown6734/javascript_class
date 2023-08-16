@@ -82,17 +82,22 @@
         //createElement - div, with id of start-options
         const stOpt = document.createElement(`div`)
         stOpt.setAttribute(`id`,`start-options`)
+        stOpt.setAttribute(`data-load`,`true`)
         menus.appendChild(stOpt)
 
         //createElement - button, new game
+        //data load -false
         const newGameBtn = document.createElement(`button`)
         newGameBtn.appendChild(document.createTextNode(`New Game`))
+        newGameBtn.setAttribute(`data-load`,`false`)
         //newGameBtn.setAttribute(`data-load`,`false`)
         stOpt.appendChild(newGameBtn)
 
         //createElement - button, continue
+        //data load - true
         const continueBtn = document.createElement(`button`)
         continueBtn.appendChild(document.createTextNode(`Continue`))
+        continueBtn.setAttribute(`data-load`,`true`)
         stOpt.appendChild(continueBtn)
 
         //createElement - button, high scores
@@ -168,7 +173,7 @@
             
             //will redirect to the lobby.html (page)
 
-            window.location = `lobby.html?${e.target.dataset.load}`
+            window.location = `lobby.html?load=${e.target.dataset.load}`
         })
 
         continueBtn.addEventListener(`click`, (e)=>{
@@ -177,7 +182,10 @@
 
             //will redirect to the lobby.html page
 
-            window.location = `lobby.html?${e.target.dataset.load}`
+
+            //load=$
+
+            window.location = `lobby.html?load=${e.target.dataset.load}`
 
             //console.log("is this working? ")
         })
@@ -201,6 +209,25 @@
         //1. remove the start menu
         //2. append the new menu
 
+
+        /*
+        
+        in this assigment students will grab the load parameter from the url and display it in an alert
+
+        instructions:
+
+        1. use the following code to get the parameter from the URL:
+
+        let params = (new URL(document.location)).serachParams
+        
+        let name = params.get("load")
+
+        alert(name)
+
+        ---------------------
+        NOTE: you should see the word `true`
+        
+        */
         
         
         
