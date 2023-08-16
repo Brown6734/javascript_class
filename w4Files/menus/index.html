@@ -106,6 +106,29 @@
             
         //}
 
+        /*
+        
+        In this assignment three event listeners will be added to the new buttons:
+
+        new (game) will redirect to the lobby.html
+
+        continue will redirect to the lobby.html
+
+        highscore will redirect to the hs.html
+
+        
+        Instructions:
+        1. add click events to the !new! and !continue! buttons
+            -upon click each button will set
+
+            window.location = `lobby.html?${e.target.dataset.load}`
+        2. add a click event to the highscore button
+            -upon click navigate to the highscore page using
+            -window.location
+        
+        
+        */
+
         var timer = setTimeout(loadStartMenu, 1000);
         function loadStartMenu(){
             $(`#load`).animate({opacity: 0}, 2000, function() {
@@ -127,10 +150,47 @@
 
                 $(`#start-options`).animate({opacity: 1}, 3000)
 
-                window.location = `pong.html`
+                //window.location = `pong.html`
             });
             //menus.removeChild(startMenu)
             //menus.appendElement(stOpt)
+        })
+
+        //add three (new) event listeners
+        //for:
+        //newGameBtn
+        //continueBtn
+        //highBtn
+
+        newGameBtn.addEventListener(`click`, (e)=>{
+
+            //stuff in here
+            
+            //will redirect to the lobby.html (page)
+
+            window.location = `lobby.html?${e.target.dataset.load}`
+        })
+
+        continueBtn.addEventListener(`click`, (e)=>{
+
+            //stuff in here
+
+            //will redirect to the lobby.html page
+
+            window.location = `lobby.html?${e.target.dataset.load}`
+
+            //console.log("is this working? ")
+        })
+
+        highBtn.addEventListener(`click`, (e)=>{
+            
+            //stuff in here
+
+            //highscore will redirect to the hs.html page
+
+            window.location = `hs.html`
+
+            //console.log("a log happy water tree")
         })
 
         //use createElement and appendElement to make the menu
