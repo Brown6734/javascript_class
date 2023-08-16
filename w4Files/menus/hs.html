@@ -36,7 +36,62 @@
         var menus = document.querySelector(`#menus`);
 
         
-       
+
+        console.log("38dj38fhns'dsfi")
+
+        //loop through the array (highScoreList) of objects
+
+        for (i=0; i < highScoreList.length; i++)
+        {
+            //This is what your final html will look like
+              //  <div id="high-scores">
+                    //scores go here.
+               // </div>
+            //
+
+            var message = ``
+            console.log("thsfddsvdsvds")
+
+            console.log(highScoreList)
+
+            //message += `<div id="high-scores"> <p>things</p> </div>`
+
+            message += `<div id="high-scores">`
+            //message += `<!--scores go in here-->`
+            //message += `<p>some text in here</p>`
+            //message += `<p>name: </p>`
+            message += `${highScoreList[i].name} ${highScoreList[i].score} `
+            //message += `<p>score: </p>`
+            //message += ` ${highScoreList[i].score}`
+            //message += `${highScoreList}`
+            message += `</div>`
+
+            menus.innerHTML += message
+
+        }
+
+          //  message += `<div id="high-scores">`
+            //message += `<!--scores go in here-->`
+         //   message += `<p>some text in here</p>`
+          //  message += `${highScoreList[1].name}`
+            //message += `${highScoreList}`
+           // message += `</div>`
+
+           // menus.innerHTML = message
+        
+        /*
+        
+        In this assignment students loop through the array of highscores and display them on the page by modifying (the page using .innerHTML)
+
+        Instructions:
+        1. create a variable called [message] that stores an empty `` string
+        2. loop through the array of objects
+        3. add to the message so that it reflects what the commented code looks like
+        4. set the menu's innerHTML to equal the message
+
+        OUTPUT: You should see a high score list on teh page
+
+        */
 
      
 
