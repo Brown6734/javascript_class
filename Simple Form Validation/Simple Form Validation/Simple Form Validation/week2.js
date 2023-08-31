@@ -61,50 +61,18 @@ once submit is clicked
 //first name input field
 //id = `first-name`
 
-var firstName = document.getElementById(`first-name`)
+
 
 //last name
 //id = `last-name`
 
-var lastName = document.getElementById(`last-name`)
 
-//email (id: email)
-var email = document.getElementById(`email`)
 
-//phone number (id: phone)
-var phone = document.getElementById(`phone`)
 
-//console.log(`first name`, firstName)
+//var submit = document.querySelector(`button`)
 
-//console.log(`last name`, lastName)
 
-//console.log(`email`, email)
 
-//console.log(`phone`, phone)
-
-//event listener for submit var
-
-//submit.addEventListener(`click`, testF1)
-
-//console.log(`first name length`, firstName.attributes.length)
-
-var thingss = document.querySelector(`#first-name`)
-
-var confirmEmail = document.getElementById(`confirm-email`)
-
-console.log(" __")
-
-var submit = document.querySelector(`button`)
-
-var ferror = document.getElementById(`fn-error`)
-
-var lerror = document.getElementById(`ln-error`)
-
-var emerror = document.getElementById(`email-error`)
-
-var cferror = document.getElementById(`cfemail-error`)
-
-var perror = document.getElementById(`phone-error`)
 
 //submit.addEventListener(`mouseover`, testThree)
 
@@ -123,32 +91,7 @@ var phoneCheck = `p`
 
 var confirmCheck = `j`
 
-var nums = 3
 
-if(nums != 30)
-{
-    console.log("how does conditional statements work?")
-}
-
-if(nums !== 30)
-{
-    console.log("conditional two")
-}
-
-if(nums !== 3)
-{
-    console.log("condtional statemtn three")
-}
-
-if (nums != 'stuff')
-{
-    console.log('nums not equal to string 1')
-}
-
-if (nums !== 'sfds')
-{
-    console.log('nums not equal to a string 2')
-}
 
 
 
@@ -160,311 +103,293 @@ if (nums !== 'sfds')
 //if(10 < 30)
 //{f
 
-console.log("first name city flowers", firstName)
+
 
 
 //if(firstName != null && firstName != undefined)
 
-    console.log("first name is towers", firstName)
+//submit = addEventListener(`click`, testThree)
+var submit = document.querySelector(`button`)
 
-    firstName = addEventListener(`input`, someFun)
-
-    console.log("first name is meat", firstName)
-
-    function someFun(e)
-    {
-        
-        //e.target
-        firstName = e.target.value
-
-        console.log("first name is gold", firstName)
-            //console.log("e target value length",e.target.value.length.valueOf())
-
-        if(e.target.value !== null)
-        {
-            var firstString = /\b([a-z]{0,})(\-{0,})/gi
-
-            var nameFirst = firstName
-
-            var result = firstString.test(nameFirst)
-
-        
-            if(result)
-            {
-                console.log("result first name", result)
-
-                firstCheck = `YES`
-            }
-            else
-            {
-                e.target.nextElementSibling.innerHTML = `first name error`
-
-                //works
-            
-                //firstName.nextElementSibling.innerHTML(`first name error`)
-            }
-
-            
-
-            
-
-        }
-
-            
-
-        
-        //run submit event listener?
-            //allow submit event listener to happen?
-            //set a certain var to true 
-            //or a certain value?
-
-        
-            //at some point, check to see if ___check vars equal `YES`
-            //if all equal `YES`, run submit event listener
-
-            //ALSO, check that RegEx is good
-
-            //firstName RegEx validation
-
-            //first name field can not include special character (excluding dashes)
-
-        //name(s) should not include underscores
-
-            
-
-            
-
-            /*
-
-            \b([a-z]{0,})(\-{0,})
-
-            */
-
-            // \w - words
-            //includes underscore
-
-    }
+submit = addEventListener(`click`, testThree)
 
 
-    
-
-//else
-//{
-    //console.log("first name field is currently nulll")
-//}
-
-//}
-
-//
-
-//
-
-
-    //lastName is null
-
-
-
-if(lastName !== null)
+function testThree(e)
 {
-    lastName = addEventListener(`input`, funLast)
+    var firstName = document.getElementById(`first-name`).value
 
-    function funLast(e)
-    {
-        console.log("e.target", e.target)
-        console.log("e.target.value", e.target.value)
+    var lastName = document.getElementById(`last-name`).value
 
-        lastName = e.target.value
+    var email = document.getElementById(`email`).value
 
-        console.log(lastName)
+    var phone = document.getElementById(`phone`).value
 
-        //check if lastName has a value
-        
-        //console.log("last name length thing",lastName.getAttribute.length.valueOf())
-        //undefined
+    var confirmEmail = document.getElementById(`confirm-email`).value
+    
 
-        console.log("e target value length",e.target.value.length.valueOf())
+    //stuff in here
 
-        //changes, yes!!
-
-        var lastString = /\b([a-z]{0,})(\-{0,})/gi
-
-        var nameLast = lastName
-
-        var result4 = lastString.test(nameLast)
-
-        if(result4)
-        {
-            console.log("result last name", result4)
-
-            lastCheck = `YES`
-        }
-        else
-        {
-            e.target.nextElementSibling.innerHTMl = `last name error`
-        }
-
-        //console.log("last name has attribute length to fixed", lastName.hasAttribute.length.toFixed())
-
-        console.log("pleassee workrrks")
-        
-
-    }
-}
+    //once submit is clicked
 
 
 
     
+    
+    //console.log("e target value length",e.target.value.length.valueOf())
+    
+    //i(e.target.value != null)
+    //{
 
+    var firstString = /\b([a-z]{0,})(\-{0,})/gi
+    
+    //works with only special characters
+    
+    /*
+    
+    ([^\_]{0,})([a-z]{0,})([^\_]{0,})(\-{0,})([^\_]{0,})
+    
+    [^!@#$%^&*()_+{}\\\[\]:;<>,.?~/|=']
+    
+    ([a-z]{0,})(\-{0,})
+    
+    */
+    
+    var name1 = firstName
+    
+    var result = firstString.test(name1)
+    
+        
+    
+            
+    if(result)
+    {
+        console.log("result first name", result)
+        
+        document.querySelector(`span`).style.color = `black`
+
+        ///document.querySelector(`#fn-error`).innerHTML = `good first name`
+
+        document.querySelector(`#fn-error`).innerHTML = ``
+
+        
+        //firstName is undefined
+    
+        firstCheck = `YES`
+    }
+    else
+    {
+        document.querySelector(`span`).style.color = `red`
+
+        document.querySelector(`#fn-error`).innerHTML = `* first name error`
+
+        
+    
+        //works
+                
+                
+    }
+
+
+    //console.log("e target value length",e.target.value.length.valueOf())
+    
+    //changes, yes!!
+    
+    var lastString = /[^[\$\&\+\,\:\;\=\?\@\#\|\'\<\>\.\^\*\(\)\%\!\-\[\]]/gi
+
+    /*
+
+    [^[\$\&\+\,\:\;\=\?\@\#\|\'\<\>\.\^\*\(\)\%\!\-\[\]]
+
+    \b([a-z]{0,})(\-{0,})
+
+    [$&+,:;=?@#|'<>.^*()%!-]
+
+    */
+    
+    var nameLast = lastName
+    
+    var result4 = lastString.test(nameLast)
+    
+    if(result4)
+    {
+        console.log("result last name", result4)
+        
+        document.querySelector(`span`).style.color = `black`
+
+        document.querySelector(`#ln-error`).innerHTML = ``
+    
+        lastCheck = `YES`
+    }
+    else
+    {
+        document.querySelector(`#ln-error`).style.color = `red`
+
+        document.querySelector(`#ln-error`).innerHTML = `* last name error`
+    }
+    
+    //console.log("last name has attribute length to fixed", lastName.hasAttribute.length.toFixed())
+
+        
+    
     //email part
-
-//regEx validation - ([a-z]{0,})([0-9]{0,})([a-z]{0,})([0-9]{0,})(\@)([a-z]{0,})([0-9]{0,})(\.{0,})([a-z]{0,})(\.{0,})([a-z]{0,})(\.{0,})([a-z]{0,})
-
-if(email !== null)
-{
-    email = addEventListener(`input`, emailFun)
-
-    function emailFun(e)
-    {   
-        email = e.target.value
-
-        console.log("eamil is", email)
-
-        var emailString = /[a-z](\w*\.?\w*)\@[a-z](\w*\.?\w{2,3}){2}/gi
-
-        /*
-
-        /[a-Za-z](\w*\.?\w*)\@[A-Za-z](\w*\.?\w{2,3}){2}/i
-
-        */
-
-        var emailName = email
-
-        var result2 = emailString.test(emailName)
-
-        if(result2)
-        {
-            console.log("result email", result2)
-
-            emailCheck = `YES`
-        }
-        else
-        {
-            e.target.nextElementSibling.innerHTML = `email error`
-        }
-
-    }
-}
-
-
-
-
-
-
-    //phone number field must contain a phone number in the following format
-    // xxxxxxxxxx
-
-/*
     
-(\({0,})([0-9]{0,})(\){0,})(\-{0,})(\.{0,})
+    //regEx validation - ([a-z]{0,})([0-9]{0,})([a-z]{0,})([0-9]{0,})(\@)([a-z]{0,})([0-9]{0,})(\.{0,})([a-z]{0,})(\.{0,})([a-z]{0,})(\.{0,})([a-z]{0,})
+
     
-*/
+    var emailString = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi
+    
+    /*
 
-if (phone !== null)
-{
-    phone = addEventListener(`input`, phoneFun)
-
-    function phoneFun(e)
+    [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
+    
+    /[a-Za-z](\w*\.?\w*)\@[A-Za-z](\w*\.?\w{2,3}){2}/i
+    
+    */
+    
+    var emailName = email
+    console.log("email name value ", emailName)
+    
+    var result2 = emailString.test(emailName)
+    
+    if(result2)
     {
-        phone = e.target.value
+        console.log("result email", result2)
+        
+        document.querySelector(`span`).style.color = `black`
 
-        var phoneString = /(?:\(\d{3}\)-\d{3}-\d{4}|\d{3}-\d{3}-\d{4}|\d{10}|\(\d{3}\)\.\d{3}\.\d{4}|\d{3}\.\d{3}\.\d{4}|\(\d{3}\)\d{3}-\d{4})/gi
+        document.querySelector(`#email-error`).innerHTML = ``
+    
+        emailCheck = `YES`
+    }
+    if(result2 == false)
+    {
+        document.querySelector(`#email-error`).style.color = `red`
 
-        /*
-        ^\d{3}-\d{3}-\d{4}$
+        document.querySelector(`#email-error`).innerHTML = `* email error`
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        //phone number field must contain a phone number in the following format
+        // xxxxxxxxxx
+    
+    /*
+        
+    (\({0,})([0-9]{0,})(\){0,})(\-{0,})(\.{0,})
+        
+    */
 
-        (?:\(\d{3}\)-\d{3}-\d{4}|\d{3}-\d{3}-\d{4}|\d{10}|\(\d{3}\)\.\d{3}\.\d{4}|\d{3}\.\d{3}\.\d{4}|\(\d{3}\)\d{3}-\d{4})
+    //i am getting an error
+    //when i type in first name field i get messgae:
+    //phone numbr error
 
-        */
-
-        var phoneName = phone
-
-        var result3 = phoneString.test(phoneName)
-
+    var phoneString = /(?:\(\d{3}\)|\d{3})[-. ]?\d{3}[-. ]?\d{4}/gi
+    
+    /*
+    ^\d{3}-\d{3}-\d{4}$
+    
+    (?:\(\d{3}\)-\d{3}-\d{4}|\d{3}-\d{3}-\d{4}|\d{10}|\(\d{3}\)\.\d{3}\.\d{4}|\d{3}\.\d{3}\.\d{4}|\(\d{3}\)\d{3}-\d{4})
+    
+    */
+    
+    var phoneName = phone
+    
+    var result3 = phoneString.test(phoneName)
+    
         if(result3)
         {
             console.log("result phone number", result3)
 
+            document.querySelector(`span`).style.color = `black`
+        
+            document.querySelector(`#phone-error`).innerHTML = ``
+    
             phoneCheck = `YES`
         }
-
+    
         else
         {
-            e.target.nextElementSibling.innerHTML = `phone number error`
+            document.querySelector(`#phone-error`).style.color = `red`
+
+            document.querySelector(`#phone-error`).innerHTML = `* phone number error`
         }
-    }
-}
-
-
-
-
-
-//email and email confirm must match
-
-if(confirmEmail !== null)
-{
-    confirmEmail = addEventListener(`input`, confirmFun)
-
-    function confirmFun(e)
-    {
-
-        confirmEmail = e.target.value
-
-        var confirmString = /[a-z](\w*\.?\w*)\@[a-z](\w*\.?\w{2,3}){2}/gi
-
-        var confirmName = confirmEmail
-
-        var result5 = confirmString.test(confirmName)
-
-
-        if(result5)
-        {
-            console.log("thing")
-        }
-        else{
-            e.target.nextElementSibling.innerHTMl = `confirm email error`
-        }
-
-        if (confirmEmail == email)
-        {
-            confirmCheck = `YES`
-
-            e.target.nextElementSibling.innerHTMl = `confirm email match`
-
-        }
-
-    }
-}
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    //email and email confirm must match
 
     
-if (firstCheck == `YES` && lastCheck == `YES` && emailCheck == `YES` && phoneCheck == `YES` && confirmCheck == `YES`)
-{
-    //run submit event listener
-
-    submit = addEventListener(`click`, testThree)
-
-    function testThree(e)
+    var confirmString = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi
+    
+    var confirmName = confirmEmail
+    
+    var result5 = confirmString.test(confirmName)
+    
+    
+    if(result5)
     {
-        //stuff in here
+        console.log("thing")
 
-        //once submit is clicked
+        document.querySelector(`span`).style.color = `black`
 
-
-
+        document.querySelector(`#cfemail-error`).innerHTML = ``
     }
+    else
+    {
+        document.querySelector(`span`).style.color = `red`
+
+        document.querySelector(`#cfemail-error`).innerHTML = `* bad confirm email`
+    }
+    
+    if (confirmEmail === email)
+    {
+        confirmCheck = `YES`
+    
+        document.querySelector(`#cfemail-error`).innerHTML = ``
+    
+    }
+    
+    
+    
+
+
+
 }
+
+/*
+once submit is clicked
+
+the form div will get hidden by setting its display style to none
+
+construct an object to to hold the information from the form and write the object's information onto the confirmation
+
+example of a possible object:
+
+var person = {
+    fname: fNameInput.value,
+    lname: lNameInput.value,
+    ...
+}
+
+the confirmatoin div will show up with the information from the Object in the following format - on Canvas page for the assignment
+
+*/
+
+    
+
+
+
+
 
 
 
