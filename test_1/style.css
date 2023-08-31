@@ -32,13 +32,12 @@
 .stuff2{
     box-sizing: border-box;
     left: 50px;
-    top: 50px;
-
+    
     height: 46px;
     width:163px;
 
     margin-left: 345px;
-    margin-top: -50px;
+    
 
     border: 5px solid gold;
 }
