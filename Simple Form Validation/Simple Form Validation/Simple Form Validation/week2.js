@@ -126,6 +126,7 @@ function testThree(e)
 
     var confirmEmail = document.getElementById(`confirm-email`).value
     
+    var somep = document.getElementsByTagName(`p`)
 
     //stuff in here
 
@@ -140,11 +141,17 @@ function testThree(e)
     //i(e.target.value != null)
     //{
 
-    var firstString = /\b([a-z]{0,})(\-{0,})/gi
+    var firstString = /^([a-z]{0,})[^\.\+\*\?\,\^\$\(\)\[\]\{\}\|\\\/\_\+\=\@\#\%\&\!\<\>\'\"\;\:\~\`]$/gi
+
+    
     
     //works with only special characters
     
     /*
+    ([a-z]{0,})(\-{0,})+[^\.\+\*\?\,\^\$\(\)\[\]\{\}\|\\\/\_\+\=\@\#\%\&\!\<\>\'\"\;\:\~\`]
+
+    ([a-z]{0,})(\-{0,})(?=[^\.\+\*\?\,\^\$\(\)\[\]\{\}\|\\\/\_\+\=\@\#\%\&\!\<\>\'\"\;\:\~\`])
+
     
     ([^\_]{0,})([a-z]{0,})([^\_]{0,})(\-{0,})([^\_]{0,})
     
@@ -155,8 +162,17 @@ function testThree(e)
     */
     
     var name1 = firstName
+
+    //var testString = firstString + firstSecString
+    //console.log("value of testString is", testString)
+
     
     var result = firstString.test(name1)
+
+
+    //var anresult = firstSecString.test(name1)
+
+    console.log("result variable for first name is", result)
     
         
     
@@ -164,8 +180,12 @@ function testThree(e)
     if(result)
     {
         console.log("result first name", result)
+
+        //console.log("anresult value is", anresult)
         
         document.querySelector(`span`).style.color = `black`
+
+        somep[0].style.color = `black`
 
         ///document.querySelector(`#fn-error`).innerHTML = `good first name`
 
@@ -182,6 +202,8 @@ function testThree(e)
 
         document.querySelector(`#fn-error`).innerHTML = `* first name error`
 
+        somep[0].style.color = `red`
+
         
     
         //works
@@ -194,7 +216,7 @@ function testThree(e)
     
     //changes, yes!!
     
-    var lastString = /[^[\$\&\+\,\:\;\=\?\@\#\|\'\<\>\.\^\*\(\)\%\!\-\[\]]/gi
+    var lastString = /^([a-z]{0,})[^\.\+\*\?\,\^\$\(\)\[\]\{\}\|\\\/\_\+\=\@\#\%\&\!\<\>\'\"\;\:\~\`]$/gi
 
     /*
 
@@ -216,6 +238,8 @@ function testThree(e)
         
         document.querySelector(`span`).style.color = `black`
 
+        somep[1].style.color = `black`
+
         document.querySelector(`#ln-error`).innerHTML = ``
     
         lastCheck = `YES`
@@ -224,7 +248,13 @@ function testThree(e)
     {
         document.querySelector(`#ln-error`).style.color = `red`
 
+        somep[1].style.color = `red`
+
         document.querySelector(`#ln-error`).innerHTML = `* last name error`
+
+        
+
+        
     }
     
     //console.log("last name has attribute length to fixed", lastName.hasAttribute.length.toFixed())
@@ -236,7 +266,7 @@ function testThree(e)
     //regEx validation - ([a-z]{0,})([0-9]{0,})([a-z]{0,})([0-9]{0,})(\@)([a-z]{0,})([0-9]{0,})(\.{0,})([a-z]{0,})(\.{0,})([a-z]{0,})(\.{0,})([a-z]{0,})
 
     
-    var emailString = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi
+    var emailString = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/gi
     
     /*
 
@@ -257,6 +287,8 @@ function testThree(e)
         
         document.querySelector(`span`).style.color = `black`
 
+        somep[2].style.color = `black`
+
         document.querySelector(`#email-error`).innerHTML = ``
     
         emailCheck = `YES`
@@ -265,7 +297,11 @@ function testThree(e)
     {
         document.querySelector(`#email-error`).style.color = `red`
 
+        somep[2].style.color = `red`
+
         document.querySelector(`#email-error`).innerHTML = `* email error`
+
+        
     }
     
     
@@ -289,7 +325,7 @@ function testThree(e)
     //when i type in first name field i get messgae:
     //phone numbr error
 
-    var phoneString = /(?:\(\d{3}\)|\d{3})[-. ]?\d{3}[-. ]?\d{4}/gi
+    var phoneString = /^(?:\(\d{3}\)|\d{3})[-. ]?\d{3}[-. ]?\d{4}$/gi
     
     /*
     ^\d{3}-\d{3}-\d{4}$
@@ -307,6 +343,8 @@ function testThree(e)
             console.log("result phone number", result3)
 
             document.querySelector(`span`).style.color = `black`
+
+            somep[4].style.color = `black`
         
             document.querySelector(`#phone-error`).innerHTML = ``
     
@@ -317,7 +355,11 @@ function testThree(e)
         {
             document.querySelector(`#phone-error`).style.color = `red`
 
+            somep[4].style.color = `red`
+
             document.querySelector(`#phone-error`).innerHTML = `* phone number error`
+
+            
         }
     
     
@@ -329,7 +371,7 @@ function testThree(e)
     //email and email confirm must match
 
     
-    var confirmString = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi
+    var confirmString = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/gi
     
     var confirmName = confirmEmail
     
@@ -342,6 +384,8 @@ function testThree(e)
 
         document.querySelector(`span`).style.color = `black`
 
+        somep[3].style.color = `black`
+
         document.querySelector(`#cfemail-error`).innerHTML = ``
     }
     else
@@ -349,22 +393,139 @@ function testThree(e)
         document.querySelector(`span`).style.color = `red`
 
         document.querySelector(`#cfemail-error`).innerHTML = `* bad confirm email`
+
+        somep[3].style.color = `red`
     }
     
     if (confirmEmail === email)
     {
         confirmCheck = `YES`
+
+        document.querySelector(`#cfemail-error`).style.color = `black`
+
+        somep[3].style.color = `black`
     
-        document.querySelector(`#cfemail-error`).innerHTML = ``
+        document.querySelector(`#cfemail-error`).innerHTML = `confirm email match`
     
     }
+    else
+    {
+        document.querySelector(`#cfemail-error`).style.color = `red`
+
+        somep[3].style.color = `red`
+
+        document.querySelector(`#cfemail-error`).innerHTML = `* email fields do not match`
+
+        
+
+        confirmCheck = `no`
+    }
+
+
+    //after everything gets validated
+
+    //the form div will get hidden by setting its display style to none
+    //id = form
+
     
+
+
+    //construct an object to hold the information from the form and write the object's information onto the confirmation section/part
+    //div id = confirmation
+    //h1 - Confirmation
+    //p id = info
+
+
+    if(firstCheck === `YES` && lastCheck === `YES` && emailCheck === `YES` && phoneCheck === `YES` && confirmCheck === `YES`)
+    {
+
+        var persons2 = {
+            //fname = fNameInput.value,
+            //lname, email, confirmemail, phone
     
+            fname: firstName,
+            lname: lastName,
+            email1: email,
+            confirmemail: confirmEmail,
+            phone1: phone
     
+        }
+
+        document.getElementById(`form`).style.display = `none`
+
+        document.getElementById(`confirmation`).style.display = `block`
+
+        //id - confirmation
+        //style
+        //background-color: aaa
+
+        document.getElementById(`confirmation`).style.width = `400px`
+
+        document.getElementById(`confirmation`).style.backgroundColor = `aaa`
+
+        document.getElementById(`confirmation`).style.border = `1px solid black`
+
+        document.getElementById(`confirmation`).style.padding = `10px`
+
+        document.getElementById(`info`).innerHTML = `${persons2.fname} ` + ` ${persons2.lname} `
+
+        console.log("persons2 phone 1 value field is", persons2.phone1)
+
+        //var exstring = `1231231233`
+
+        //var exphone = exstring.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3')
+
+        //console.log("exphone string is ", exphone)
+
+        //var tryphone2 = exphone.split(` `)
+
+        //console.log("tryphone2 value is", tryphone2)
+
+        //console.log(tryphone2[0] + `-` + tryphone2[1] + `-` + tryphone2[2])
+        var phoneText = persons2.phone1
+
+        var phoneReplace = phoneText.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3')
+
+        var phoneSplit = phoneReplace.split(` `)
+
+        //phoneSplit[0] + `-` + [1] + `-` + [2]
+
+        document.getElementById(`info`).innerHTML += `<br>` + `${persons2.email1}  ` + `<br>`
+
+        document.getElementById(`info`).innerHTML += `${phoneSplit[0]}` + `-` + `${phoneSplit[1]}` + `-` + `${phoneSplit[2]}`
+
+
+
+        //document.getElementById(`info`).innerHTML += `&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; words and more words`
+
+        //document.getElementById(`info`).innerHTML += `<br>` + `a new line? /n a new line?22`
+
+
+    }
+
+    
+
+    
+
+    //put the information into the p tag (id = info)
+
+    
+
+    //info p tag
+    //to have the values of
+    //fname, lname (in one line)
+    //email1
+    //phone1 in format:
+    // ###-###-####
+
 
 
 
 }
+
+
+
+
 
 /*
 once submit is clicked
